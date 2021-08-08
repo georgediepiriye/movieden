@@ -19,6 +19,12 @@ class HomeController extends Controller
         ->get('https://api.themoviedb.org/3/movie/popular')
         ->json()['results'];
 
+
+        //gets arrays of now playing
+        $now_playing = Http::withToken(config('services.tmdb.token'))
+        ->get('https://api.themoviedb.org/3/movie/now_playing')
+        ->json()['results'];
+
         //gets arrays of genres
         $genresArray = Http::withToken(config('services.tmdb.token'))
         ->get('https://api.themoviedb.org/3/genre/list')
@@ -33,7 +39,8 @@ class HomeController extends Controller
    
         return view('home',[
             'popular_movies'=>$popular_movies,
-            'genres' => $genres
+            'genres' => $genres,
+            'now_playing'=>$now_playing
         ]);
     }
 
