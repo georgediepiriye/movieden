@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
@@ -13,8 +14,27 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //
-        return view('home');
+        //gets arrays of popular movies
+        $popular_movies = Http::withToken(config('services.tmdb.token'))
+        ->get('https://api.themoviedb.org/3/movie/popular')
+        ->json()['results'];
+
+        //gets arrays of genres
+        $genresArray = Http::withToken(config('services.tmdb.token'))
+        ->get('https://api.themoviedb.org/3/genre/list')
+        ->json()['genres'];
+
+        //converts genre arrays into a collection of arrays of id and name key value pairs
+        $genres = collect($genresArray)->mapWithKeys(function ($genre){
+            return [$genre['id']=> $genre['name']];
+        });
+     
+     
+   
+        return view('home',[
+            'popular_movies'=>$popular_movies,
+            'genres' => $genres
+        ]);
     }
 
     /**

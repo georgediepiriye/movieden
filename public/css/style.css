@@ -859,7 +859,7 @@ body {
 
   .ps-products-wrap .ps-products {
     position: relative;
-  
+    left: 130px;
     padding-left: 10px;
     float: left;
     width: calc(100% - 270px); }
@@ -2378,7 +2378,7 @@ textarea.form-control {
     top: -15px;
     left: -15px;
     width: calc(100% + 30px);
-    height: calc(100% + 108px);
+    height: calc(100% + 100px);
     border: 1px solid #000;
     z-index: 1000;
     visibility: hidden;
