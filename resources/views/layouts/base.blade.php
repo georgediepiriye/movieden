@@ -35,6 +35,7 @@
     <!--HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!--WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+    @livewireStyles()
   </head>
   <!--[if IE 7]><body class="ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
   <!--[if IE 8]><body class="ie8 lt-ie9 lt-ie10"><![endif]-->
@@ -43,7 +44,7 @@
     <div class="header--sidebar"></div>
     <header class="header">
     
-      <nav class="navigation">
+      <nav class="navigation" style="z-index: 1000000000">
         <div class="container-fluid">
           <div class="navigation__column left">
             <div class="header__logo"><a class="ps-logo" href="index.html"><img src="images/movielogo1.jpg" alt=""></a></div>
@@ -57,14 +58,7 @@
     
                 </ul>
           </div>
-          <div class="navigation__column right">
-            <form class="ps-search--header" action="do_action" method="post">
-              <input class="form-control" type="text" placeholder="Search Product…">
-              <button><i class="ps-icon-search"></i></button>
-            </form>
-            
-            <div class="menu-toggle"><span></span></div>
-          </div>
+           @livewire('search-dropdown')
         </div>
       </nav>
     </header>
@@ -212,5 +206,6 @@
 <script type="text/javascript" src="{{ asset('plugins/revolution/js/extensions/revolution.extension.actions.min.js') }}"></script>
     <!-- Custom scripts-->
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+    @livewireScripts()
   </body>
 </html>

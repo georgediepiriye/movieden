@@ -1,6 +1,6 @@
 @extends('layouts.base')
 @section('content')
-<main class="ps-main">
+<main class="ps-main" style="z-index: -1 !important">
     <div class="test">
       <div class="container">
         <div class="row">
