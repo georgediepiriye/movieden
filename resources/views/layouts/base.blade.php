@@ -47,9 +47,9 @@
       <nav class="navigation" style="z-index: 1000000000">
         <div class="container-fluid">
           <div class="navigation__column left">
-            <div class="header__logo"><a class="ps-logo" href="index.html"><img src="images/movielogo1.jpg" alt=""></a></div>
+            <div class="header__logo"><a class="ps-logo" href="index.html"><img src="{{ asset('images/movielogo1.jpg') }}" alt=""></a></div>
           </div>
-          <div class="navigation__column center">
+          <div class="navigation__column center"> 
                 <ul class="main-menu menu">
                   <li class="menu-item menu-item-has-children dropdown"><a href="{{ route('home') }}">Movies</a></li>
                   <li class="menu-item menu-item-has-children has-mega-menu"><a href="#">Tv Shows</a></li>

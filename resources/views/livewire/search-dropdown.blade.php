@@ -1,8 +1,10 @@
 <div class="navigation__column right">
     <form class="ps-search--header" action="do_action" method="post">
-      
-        <span><i class="ps-icon-search"></i></span>
+ 
+        <span style="position: absolute"><i class="ps-icon-search"></i></span>
       <input class="form-control" type="text" placeholder="Search Product…" wire:model.debounce.500ms='search'>
+      <div class="loader" style="position: absolute; float: right !important;" wire:loading ></div>
+      
       @if (strlen($search)>2)
             @if ($searchResult->count() > 0)
                 <div class="search-dropdown">

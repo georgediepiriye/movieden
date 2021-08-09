@@ -58,7 +58,7 @@
               </div>
                 
                 @if (count($movie['videos']['results'])  > 0  )
-                    <div class="ps-product__shopping"><a class="ps-btn mb-10" href="https://youtube.com/watch?v={{ $movie['videos']['results'][0]['key'] }}">Play Trailer<i class="ps-icon-next"></i></a>
+                    <div class="ps-product__shopping"><a class="ps-btn mb-10" href="https://youtube.com/watch?v={{ $movie['videos']['results'][0]['key'] }}">Play Trailer<i class="fa fa-play-circle-o" style="font-size:30px;"></i></a>
 
                     </div>
                     
