@@ -16,12 +16,12 @@
             <div class="ps-product__thumbnail">
               
                 <div class="ps-product__image">
-                  <div class="item"><img class="zoom" src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}"  alt="" data-zoom-image="images/shoe-detail/1.jpg"></div>
+                  <div class="item"><img class="zoom" src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}"  alt="" ></div>
                 </div>
               </div>
             <div class="ps-product__thumbnail--mobile">
               <div class="ps-product__main-img"><img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt=""></div>
-              <div class="ps-product__preview owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="20" data-owl-nav="true" data-owl-dots="false" data-owl-item="3" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="3" data-owl-item-lg="3" data-owl-duration="1000" data-owl-mousedrag="on"><img src="images/shoe-detail/1.jpg" alt=""><img src="images/shoe-detail/2.jpg" alt=""><img src="images/shoe-detail/3.jpg" alt=""></div>
+
             </div>
             <div class="ps-product__info">
               <h1>{{ $movie['title'] }}</h1>
@@ -90,7 +90,12 @@
                     <div class="ps-shoes--carousel">
                         <div class="ps-shoe">
                             <div class="ps-shoe__thumbnail">
-                              <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $cast['profile_path'] }}" alt="">
+                                @if ($cast['profile_path'])
+                                    <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $cast['profile_path'] }}" alt="">
+                                @else
+                                    <img src="{{ asset('images/placeholder.jpg') }}" alt="">
+                                @endif
+                             
                             </div>
                             <div class="ps-shoe__content">
                             

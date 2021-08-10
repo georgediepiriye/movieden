@@ -8,7 +8,7 @@
       
       </div>
       
-      <h4 style="margin-bottom: 20px">POPULAR MOVIES</h4>
+      <h4 style="margin-bottom: 20px"><b>POPULAR MOVIES</b></h4>
       <div class="ps-product__columns">
           @foreach ($popular_movies as $movie )
               <x-movie-card :movie='$movie' :genres="$genres"/>
@@ -29,7 +29,7 @@
        
       
       </div>
-      <h4 style="margin-bottom: 20px">NOW PLAYING</h4>
+      <h4 style="margin-bottom: 20px"><b>NOW PLAYING</b></h4>
       <div class="ps-product__columns">
           @foreach ($now_playing as $movie )
            <x-movie-card :movie='$movie' :genres="$genres"/>
