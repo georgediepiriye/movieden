@@ -5,6 +5,12 @@
         <span style="position: absolute"><i class="ps-icon-search"></i></span>
         <input class="form-control" type="text" placeholder="Search Product…"
          wire:model.debounce.500ms="search"
+         x-ref="search"
+         @keydown.window="
+            if(event.keycode==191){
+                $refs.search.focus(); 
+            }
+         "
          @focus="isOpen=true"
          @keydown="isOpen=true"
          @keydown.escape.window="isOpen=false" 
