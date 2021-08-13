@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActorsController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/movie/{id}',[HomeController::class,'show'])->name('movie.details');
+
+
+Route::get('/actors',[ActorsController::class,'index'])->name('actors');
+Route::get('/actor/{actor}',[ActorsController::class,'show'])->name('actor.details');

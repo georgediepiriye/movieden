@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\ViewModels\ActorsViewModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-
-class HomeController extends Controller
+class ActorsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,34 +15,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //gets arrays of popular movies
-        $popular_movies = Http::withToken(config('services.tmdb.token'))
-        ->get('https://api.themoviedb.org/3/movie/popular')
-        ->json()['results'];
-          
-
-        //gets arrays of now playing
-        $now_playing = Http::withToken(config('services.tmdb.token'))
-        ->get('https://api.themoviedb.org/3/movie/now_playing')
-        ->json()['results'];
-
-        //gets arrays of genres
-        $genresArray = Http::withToken(config('services.tmdb.token'))
-        ->get('https://api.themoviedb.org/3/genre/list')
-        ->json()['genres'];
-
-        //converts genre arrays into a collection of arrays of id and name key value pairs
-        $genres = collect($genresArray)->mapWithKeys(function ($genre){
-            return [$genre['id']=> $genre['name']];
-        });
-        
-     
-   
-        return view('home',[
-            'popular_movies'=>$popular_movies,
-            'genres' => $genres,
-            'now_playing'=>$now_playing
-        ]);
+        //
+          //gets arrays of popular movies
+          $popularActors = Http::withToken(config('services.tmdb.token'))
+          ->get('https://api.themoviedb.org/3/person/popular')
+          ->json()['results'];
+    
+          $viewModel = new ActorsViewModel($popularActors);
+        return view('actors',$viewModel);
     }
 
     /**
@@ -75,15 +55,6 @@ class HomeController extends Controller
     public function show($id)
     {
         //
-     
-        $movie = Http::withToken(config('services.tmdb.token'))
-        ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=credits,images,videos')
-        ->json();
-
-
-        return view('movie-details',[
-            'movie'=>$movie
-        ]);
     }
 
     /**

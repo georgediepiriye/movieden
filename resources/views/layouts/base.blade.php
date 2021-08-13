@@ -50,7 +50,7 @@
                 <ul class="main-menu menu">
                   <li class="menu-item menu-item-has-children dropdown"><a href="{{ route('home') }}">Movies</a></li>
                   <li class="menu-item menu-item-has-children has-mega-menu"><a href="#">Tv Shows</a></li>
-                  <li class="menu-item"><a href="#">Actors</a></li>
+                  <li class="menu-item"><a href="{{ route('actors') }}">Actors</a></li>
                
     
                 </ul>

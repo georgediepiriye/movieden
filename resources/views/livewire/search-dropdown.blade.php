@@ -3,7 +3,7 @@
     <div class="ps-search--header"  x-data="{ isOpen: true }" @click.away="isOpen = false">
 
         <span style="position: absolute"><i class="ps-icon-search"></i></span>
-        <input class="form-control" type="text" placeholder="Search Product…"
+        <input class="form-control" type="text" placeholder="Search Movie…"
          wire:model.debounce.500ms="search"
          x-ref="search"
          @keydown.window="

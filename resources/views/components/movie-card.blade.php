@@ -1,4 +1,4 @@
-<div class="ps-product__column">
+<div class="">
     <a href="{{ route('movie.details',['id'=>$movie['id']]) }}">
         <div class="ps-shoe mb-20">
             <div class="ps-shoe__thumbnail">
@@ -15,7 +15,7 @@
                 | <i style="color: gold" class="fa fa-star"></i>  <span>{{ $movie['vote_average'] * 10 . '%' }}</span>
                 <p class="ps-shoe__categories">
                     @foreach ($movie['genre_ids'] as $genre)
-                        {{ $genres->get($genre) }}@if (!$loop->last),
+                        {{ $genres->get($genre) }}@if(!$loop->last),
                         
                         @endif
                         

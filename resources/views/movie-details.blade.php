@@ -39,6 +39,8 @@
                                   <div>{{ $crew['job'] }}</div>
 
                               </div>
+                           @else
+                            @break   
                               
                           @endif
                       
@@ -102,24 +104,33 @@
               <div class="ps-section__content">
                 <div class="ps-owl--colection owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="30" data-owl-nav="false" data-owl-dots="false" data-owl-item="4" data-owl-item-xs="1" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4" data-owl-duration="1000" data-owl-mousedrag="on">
                       @foreach ($movie['credits']['cast'] as $cast)
-                          <div class="ps-shoes--carousel">
-                              <div class="ps-shoe">
-                                  <div class="ps-shoe__thumbnail">
-                                      @if ($cast['profile_path'])
-                                          <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $cast['profile_path'] }}" alt="">
-                                      @else
-                                          <img src="{{ asset('images/placeholder.jpg') }}" alt="">
-                                      @endif
+                       @if ($loop->index < 5)
+                        <div class="ps-shoes--carousel">
+                            <div class="ps-shoe">
+                                <div class="ps-shoe__thumbnail">
+                                    
+                                  @if ($cast['profile_path'])
+                                    <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $cast['profile_path'] }}" alt="">
                                   
-                                  </div>
-                                  <div class="ps-shoe__content">
+                                  @else
+                                    <img src="{{ 'https://ui-avatars.com/api/?size=500&name=' . $cast['name'] }}" alt="">
+                                  @endif
                                   
-                                      <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">{{ $cast['name'] }}</a>
-                                      <p class="ps-shoe__categories"><a href="#">{{ $cast['character'] }}</a></p>
-                                      </div>
-                                  </div>
-                              </div>
+                                
+                                </div>
+                                <div class="ps-shoe__content">
+                                
+                                    <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">{{ $cast['name'] }}</a>
+                                    <p class="ps-shoe__categories"><a href="#">{{ $cast['character'] }}</a></p>
+                                    </div>
+                                </div>
+                            </div>
                           </div>
+                       @else
+                       @break
+                         
+                       @endif
+                          
                           
                       @endforeach
                 
@@ -165,7 +176,7 @@
               </div>
                
 
-              
+
           </div>
 
       
